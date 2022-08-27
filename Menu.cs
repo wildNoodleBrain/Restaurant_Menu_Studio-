@@ -5,17 +5,23 @@ using System.Text;
 
 namespace _4._8.__Restaurant_Menu
 {
-    class Menu
+    internal class Menu
     {
-        /// <summary>
-        /// Items{get; set;}
-        /// </summary>
-        public System.Collections.Generic.List<MenuItem> Public
+        public DateTime LastUpdated { get; set; }
+        public List<MenuItems> Items { get; set; }
+        public Menu(DateTime updateDate, List<MenuItems> item)
         {
-            get => default;
-            set
+            LastUpdated = updateDate;
+            Items = item;
+        }
+        public void PrintMenu(MenuItems item)
+        {
+            Console.WriteLine($"\n{item.Name}, ${item.Price}\n{item.Description}");
+            if (item.New)
             {
+                Console.WriteLine("New Item");
             }
         }
     }
 }
+       
